@@ -14,18 +14,25 @@ class ToDoList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
       child: Container(
         padding: EdgeInsets.all(12),
         child: Row(
           children: [
             //Check box
-            Checkbox(value: value, onChanged: onChanged),
+            Checkbox(
+              value: taskCompleted,
+              onChanged: onChanged,
+              activeColor: Colors.red,
+            ),
             //Task name
-            Text("Make the app",
+            Text(taskName,
                 style: TextStyle(
                   fontSize: 18,
                   fontStyle: FontStyle.italic,
+                  decoration: taskCompleted
+                      ? TextDecoration.lineThrough
+                      : TextDecoration.none,
                 )),
           ],
         ),
