@@ -3,8 +3,8 @@ import 'package:todoapp/utilities/myButtons.dart';
 
 class DialogBox extends StatelessWidget {
   final controller;
-  VoidCallback onSave;
-  VoidCallback onCancel;
+  final VoidCallback onSave;
+  final VoidCallback onCancel;
 
   DialogBox({
     super.key,
@@ -16,8 +16,12 @@ class DialogBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.orangeAccent,
+      backgroundColor: Color.fromARGB(255, 236, 216, 191),
       content: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(
+          Radius.circular(12),
+        )),
         height: 120,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -39,23 +43,23 @@ class DialogBox extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                //Save Button
+                //Cancel Button
                 MyButtons(
-                  name: "Save",
-                  onpressed: onSave,
-                  myColor: Color.fromARGB(255, 212, 111, 255),
+                  name: "Cancel",
+                  onpressed: onCancel,
+                  myColor: Color.fromARGB(255, 255, 21, 0),
                 ),
 
                 SizedBox(
                   width: 10,
                 ),
 
-                //Cancel Button
+                //Save Button
                 MyButtons(
-                  name: "Cancel",
-                  onpressed: onCancel,
-                  myColor: Color.fromARGB(255, 255, 21, 0),
-                )
+                  name: "Save",
+                  onpressed: onSave,
+                  myColor: Color.fromARGB(255, 212, 111, 255),
+                ),
               ],
             ),
           ],
